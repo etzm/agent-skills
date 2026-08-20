@@ -1,0 +1,8 @@
+# Personal profiles and runtime state never enter this repo
+profile.md
+**/profile.md
+**/state/
+*.log
+
+# OS noise
+.DS_Store
