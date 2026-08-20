@@ -1,7 +1,7 @@
 ---
 name: news-digest
 description: Tunable, profile-driven news digest with source tiers, noise damping, and a serendipity slot.
-version: 2.0.0
+version: 2.1.0
 author: Martin Etzrodt
 license: CC-BY-4.0
 metadata:
@@ -110,8 +110,8 @@ Re-run the word count after any cuts.
 
 ## Deliver
 
-- `chat` mode (default): plain text only. Header line `News digest · {date} · ~{N} min read`, then items separated by blank lines, unicode bullets only. No markdown headers, no tables, no bold markers; assume the channel renders none of it.
-- `audio` mode (only on explicit request): produce the chat-mode text first, then convert via TTS using the profile's provider and voices. Strip bullets, unicode symbols, and the header's "~N min read" figure before sending to TTS — read naturally, not literally. Always deliver the text alongside the audio, never audio-only.
+- `chat` mode (default): plain text only. Header line `News digest · {date} · ~{N} min read`, then a coverage line `Coverage: {window start} to {window end} ({IANA timezone})` stating the exact span this digest gathered against — it makes gaps and overlaps between consecutive digests auditable. Then items separated by blank lines, unicode bullets only. No markdown headers, no tables, no bold markers; assume the channel renders none of it.
+- `audio` mode (only on explicit request): produce the chat-mode text first, then convert via TTS using the profile's provider and voices. Strip bullets, unicode symbols, links, the coverage line, and the header's "~N min read" figure before sending to TTS — read naturally, not literally. Always deliver the text alongside the audio, never audio-only.
 - `html` mode: one self-contained file, system fonts, no external requests, same content and order.
 - Footer, chat and html modes: one line naming the most consequential stories deliberately cut this run (`Cut: X · Y`), so selection stays auditable. Omit on thin days.
 - State update: append each sent item's headline to `state/headlines.log` (`YYYY-MM-DD | headline`); prune entries older than 7 days.
