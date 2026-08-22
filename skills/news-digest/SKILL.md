@@ -1,7 +1,7 @@
 ---
 name: news-digest
 description: Tunable, profile-driven news digest with source tiers, noise damping, and a serendipity slot.
-version: 2.1.0
+version: 2.2.0
 author: Martin Etzrodt
 license: CC-BY-4.0
 metadata:
@@ -115,6 +115,26 @@ Re-run the word count after any cuts.
 - `html` mode: one self-contained file, system fonts, no external requests, same content and order.
 - Footer, chat and html modes: one line naming the most consequential stories deliberately cut this run (`Cut: X · Y`), so selection stays auditable. Omit on thin days.
 - State update: append each sent item's headline to `state/headlines.log` (`YYYY-MM-DD | headline`); prune entries older than 7 days.
+
+## Triage and promotion
+
+The noise filters above came from clustering real reader verdicts. That loop must keep running, or selection drifts back to generic defaults.
+
+Capture — whenever the reader reacts to a digest, append one line to `state/triage.log`, format `YYYY-MM-DD | verdict | category | item`:
+
+- `keep` — the reader engaged with or praised an item. `noise` — they say it should not have run.
+- `cut-wrong` — they say something in the `Cut:` footer should have made it.
+- `miss` — they mention a story learned elsewhere first that fit the profile. This is the sharpest signal there is; ask enough to log it precisely.
+- A `+topic` or `-topic` in an invocation is also a verdict; log it.
+
+Category names the selection machinery the verdict touches: `rotation`, `conflict`, `accident`, `tier`, `serendipity`, `beat`, `budget`.
+
+Promotion — monthly, or sooner when the log visibly clusters:
+
+- Three same-direction verdicts in one category is a proposed rule change. Propose it to the reader with the log lines as evidence; never adopt silently.
+- Never edit this skill in place on a deployed machine — it deploys from a source repo and local edits are overwritten. Adopted changes land in the repo, with a dated note recording which verdicts became which rule.
+- Drop entries older than 90 days that never clustered. The log is a staging area, not a second memory.
+- End each pass by testing one open question from the latest dated note against the month's evidence.
 
 ## Ground rules
 
