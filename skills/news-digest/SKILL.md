@@ -1,7 +1,7 @@
 ---
 name: news-digest
 description: Tunable, profile-driven news digest with source tiers, noise damping, and a serendipity slot.
-version: 2.2.0
+version: 2.2.1
 author: Martin Etzrodt
 license: CC-BY-4.0
 metadata:
@@ -68,6 +68,7 @@ Novelty state: keep `state/headlines.log` next to this skill, one line per sent 
 Noise filters:
 
 - **Heavy-rotation damper.** A story dominating mainstream coverage is presumed noise. Monitor it silently; it earns a slot only on a real breakout — a decision, a reversal, a structural change that alters what happens next — never for daily developments, casualty counts, or incremental escalation. When it does surface, lead with the shift itself.
+- **Narrative-vs-trend bias check.** Acute crisis narratives (wars, sanctions escalations, single-week political flare-ups) are a media-attention layer sitting on top of longer, structural trends (multi-year funding/capital rotation, verification-scarcity in research, infrastructure adoption curves) — never let the acute narrative stand in as the explanation for the structural move. When writing or analyzing an item, ask whether the crisis actually caused the trend or just happens to be co-occurring with it; state structural drivers explicitly and flag when a crisis headline is being over-credited as causal. This applies to writeups and ad hoc analysis pulling on this skill, not just the daily item list.
 - **Ongoing conflicts** (standing wars and geopolitical confrontations): cover only via Tier 1 analysis sources (Economist, FT, Foreign Affairs tier) and only when something strategically shifts. Never relay day-to-day strike, casualty, or missile-test coverage from wires or broadcasters. The digest is not a headline radio station.
 - **Accidents and disasters** (mine collapses, crashes, landslides and similar): irrelevant regardless of death toll, unless the event exposes a systemic issue inside Tier A.
 
