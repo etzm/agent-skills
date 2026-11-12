@@ -29,6 +29,8 @@ product as much as the skills are.
 | Skill | What it does |
 |---|---|
 | [news-digest](skills/news-digest/SKILL.md) | Profile-driven news digest with reading-time budget, source tiers, rotation damping, novelty state, coherence self-check, and a serendipity slot. |
+| [docx](skills/docx/SKILL.md) | Word documents with python-docx: A4 setup, styles, tables, page-number field, safe editing of existing files, structural verification without LibreOffice. |
+| [pdf](skills/pdf/SKILL.md) | PDFs from HTML + print CSS via headless Chromium: page numbers, repeated table headers, page breaks, and a real rendered-preview check. |
 
 ## Using a skill
 

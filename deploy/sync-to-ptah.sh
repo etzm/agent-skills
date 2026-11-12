@@ -11,6 +11,8 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 # "repo-skill-name:target-dir-on-box" (Hermes categorizes skills)
 MAPPINGS="
 news-digest:research/news-digest
+docx:productivity/docx
+pdf:productivity/pdf
 "
 
 for mapping in $MAPPINGS; do
